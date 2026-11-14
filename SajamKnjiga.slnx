@@ -1,3 +1,6 @@
 <Solution>
-  <Project Path="SajamKnjiga.ConsoleClient/SajamKnjiga.ConsoleClient.csproj" />
+  <Project Path="SajamKnjiga.ConsoleClient/SajamKnjiga.ConsoleClient.csproj">
+    <BuildDependency Project="SajamKnjiga.Core/SajamKnjiga.Core.csproj" />
+  </Project>
+  <Project Path="SajamKnjiga.Core/SajamKnjiga.Core.csproj" />
 </Solution>

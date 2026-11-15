@@ -1,4 +1,6 @@
 ﻿using SajamKnjiga.Core.Interfaces;
+using System.Text;
+using System.Collections.Generic;
 
 namespace SajamKnjiga.Core.Utils
 {
@@ -23,19 +25,17 @@ namespace SajamKnjiga.Core.Utils
             return objects;
         }
 
-        public List<string> ToCSV(List<T> objects)
+        public string ToCSV(List<T> objects)
         {
-            List<string> lines = new List<string>();
+            StringBuilder sb = new StringBuilder();
 
-            foreach (T obj in objects)
+            foreach (ISerializable obj in objects)
             {
-                string[] values = obj.ToCSV();
-                string line = string.Join(Delimiter, values);
-
-                lines.Add(line);
+                string line = string.Join(Delimiter.ToString(), obj.ToCSV());
+                sb.AppendLine(line);
             }
 
-            return lines;
+            return sb.ToString();
         }
     }
 }
